@@ -1,9 +1,9 @@
 # WrenAi-k8s
 Deployment of WrenAi app in your K8s using ArgoCD
 
-The main ArgoCD app (wrenai.app.yaml located here)[all-apps-infra/wrenai.app.yaml]
+The main ArgoCD app [wrenai.app.yaml located here](all-apps-infra/wrenai.app.yaml)
 
-The main (kustomization folder)[all-apps-infra/wrenai.kustomize] located here.
+The main [kustomization folder](all-apps-infra/wrenai.kustomize) located here.
 
 You will need to modify the Secret, Ingress and Certificate manifests in the example folder. And also the ConfigMap kustomization patch file in the patches folder.
 
