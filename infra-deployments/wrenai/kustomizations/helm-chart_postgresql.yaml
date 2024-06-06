@@ -1,0 +1,9 @@
+auth:
+  secretKeys:
+    adminPasswordKey: postgres-password
+  existingSecret: wrenai-postgresql
+#Creates DB admin_ui for Wren-UI application
+global:
+  postgresql:
+    auth:
+      database: admin_ui

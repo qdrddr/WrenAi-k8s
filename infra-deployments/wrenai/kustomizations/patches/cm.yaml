@@ -1,0 +1,7 @@
+- op: replace
+  path: /data/WREN_ENGINE_ENDPOINT
+  value: "http://wren-ui.myhost.net"
+
+- op: replace
+  path: /data/DB_TYPE
+  value: "pg"

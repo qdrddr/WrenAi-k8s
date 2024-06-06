@@ -1,0 +1,53 @@
+#kubectl kustomize infra-deployments/wrenai/kustomizations --enable-helm > infra-deployments/wrenai/kustomizations/wrenai.kustimized.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+
+namespace: ai-system
+
+### Overwride with causion
+#images:
+#  - name: ghcr.io/canner/wren-bootstrap
+#    newTag: 0.1.4 # Update to new version
+#  - name: ghcr.io/canner/wren-engine
+#    newTag: 0.4.7 # Update to new version
+#  - name: ghcr.io/canner/wren-ui
+#    newTag: 0.6.0 # Update to new version. Mimumal version is 0.6.0 to use postgress for wren-ui, if you are using older version, you may use only sqlite, please adjust ConfigMap (deployment/kustomizations/base/cm.yaml), Secret (deployment/kustomizations/examples/secret-wren_example.yaml) and the deployment/kustomizations/base/deploy-wren-ui.yaml manifests.
+#  - name: ghcr.io/canner/wren-ai-service
+#    newTag: 0.5.0 # Update to new version
+
+resources:
+- https://github.com/Canner/WrenAI.git/deployment/kustomizations?ref=main
+#https://github.com/Canner/WrenAI.git/deployment/kustomizations?ref=0.4.0
+
+### Best practice is to create and deploy Secrets manually, not as part of kustomization or GitOps!
+- examples/secret-wren_example.yaml
+- examples/ingress-wren.yaml
+- examples/certificate-wren.yaml
+
+
+### Additional customizations here
+patches:
+### for DualStack IP k8s cluster
+#- path: patches/service.yaml
+#  target:
+#    kind: Service
+##    name: wren-ai-service
+
+### removes the Ingress from the original repo
+- path: patches/rm-ingress.yaml
+  target:
+    kind: Ingress
+    name: wren-ui-ingress
+
+### removes the Certificate from the original repo
+- path: patches/rm-certificate.yaml
+  target:
+    kind: Certificate
+    name: wren-ui.myhost.net
+
+### Patches values from the original repo in ConfigMap 
+- path: patches/cm.yaml
+  target:
+    kind: ConfigMap
+    name: wren-config

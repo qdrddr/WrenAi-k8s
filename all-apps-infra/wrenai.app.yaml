@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wrenai
+spec:
+  destination:
+    name: ''
+    namespace: ai-system
+    server: 'https://kubernetes.default.svc'
+  sources:
+
+  - path: ''
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 14.3.3
+    chart: postgresql
+    helm:
+      valueFiles:
+      - '$values/infra-deployments/wrenai/kustomizations/helm-chart_postgresql.yaml'
+
+  - repoURL: 'git@github.com:qdrddr/WrenAi-k8s.git'
+    targetRevision: main
+    ref: values
+  
+  - repoURL: 'git@github.com:qdrddr/WrenAi-k8s.git'
+    path: infra-deployments/wrenai/kustomizations
+    targetRevision: main
+    kustomize:
+      namespace: ai-system
+
+  - repoURL: 'git@github.com:qdrddr/WrenAi-k8s.git'
+    path: infra-deployments/wrenai/manifests
+    targetRevision: main
+
+  project: so-main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
