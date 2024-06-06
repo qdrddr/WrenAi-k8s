@@ -5,7 +5,7 @@ The main ArgoCD app [wrenai.app.yaml located here](all-apps-infra/wrenai.app.yam
 
 The main [kustomization folder](infra-deployments/wrenai/kustomizations) located here.
 
-You will need to modify the Secret, Ingress and Certificate manifests in the example folder. And also the ConfigMap kustomization patch file in the patches folder.
+You will need to modify the Secret, Ingress and Certificate manifests in the [examples](infra-deployments/wrenai/kustomizations/examples) folder. And also the [ConfigMap kustomization patch](infra-deployments/wrenai/kustomizations/patches/cm.yaml) file in the patches folder.
 
 Modify the example of the secrets manifest first before applying the main kustomization. Do not include Secter manifest into your ArgoCD repo. Best practice is not to store your password in your git repo!
 
