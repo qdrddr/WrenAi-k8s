@@ -18,3 +18,5 @@ Check the resulting manifests inflated by kustomization tool before you apply th
 ```
 kubectl kustomize infra-deployments/wrenai/kustomizations --enable-helm > infra-deployments/wrenai/kustomizations/wrenai.kustimized.yaml
 ```
+
+What’s the difference with the official [kustomization](https://github.com/Canner/WrenAI/blob/main/deployment/kustomizations/kustomization.yaml)? You’ll feel the difference when you need to update your app. Next time you need to upgrade your WrenAI, just change the `ref=` in main resource https://github.com/Canner/WrenAI.git/deployment/kustomizations?ref=0.4.0 to a newer version in the [kustomization.yaml](infra-deployments/wrenai/kustomizations/kustomization.yaml) file. And voila!
