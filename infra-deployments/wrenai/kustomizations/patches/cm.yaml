@@ -5,3 +5,11 @@
 - op: replace
   path: /data/DB_TYPE
   value: "pg"
+
+- op: replace
+  path: /data/TELEMETRY_ENABLED
+  value: "false"
+
+- op: replace
+  path: /data/WREN_AI_ENDPOINT
+  value: "http://wren-ai-service-svc:5555"
