@@ -1,0 +1,64 @@
+#argocd-helm-values.yaml
+configs:
+  cm:
+    create: true
+    url: https://argocd.wiseinfotec.net
+    kustomize.buildOptions: --enable-helm
+  cmp:
+    create: true
+    plugins:
+      #kustomize-build-with-helm:
+      #  generate:
+      #    command: [ "sh", "-c" ]
+      #    args: [ "kustomize build --enable-helm" ]
+      kustomized-helm:
+        init:
+          command: ["/bin/sh", "-c"]
+          args: ["helm dependency build || true"]
+        generate:
+          command: [ "sh", "-c" ]
+          #args: ["echo \"$HELM_VALUES\" | helm template . --name-template $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS -f - > all.yaml && kustomize build"]
+          args: ["helm template . --name-template $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS  > all.yaml && kustomize build"]
+          #args: ["helm template . --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS > all.yaml && kustomize build"]
+configs:
+  cm:
+    create: true
+    url: https://argocd.wiseinfotec.net
+    kustomize.buildOptions: --enable-helm
+  cmp:
+    create: true
+    plugins:
+      #kustomize-build-with-helm:
+      #  generate:
+      #    command: [ "sh", "-c" ]
+      #    args: [ "kustomize build --enable-helm" ]
+      kustomized-helm:
+        init:
+          command: ["/bin/sh", "-c"]
+          args: ["helm dependency build || true"]
+        generate:
+          command: [ "sh", "-c" ]
+          #args: ["echo \"$HELM_VALUES\" | helm template . --name-template $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS -f - > all.yaml && kustomize build"]
+          args: ["helm template . --name-template $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS  > all.yaml && kustomize build"]
+          #args: ["helm template . --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS > all.yaml && kustomize build"]
+configs:
+  cm:
+    create: true
+    url: https://argocd.wiseinfotec.net
+    kustomize.buildOptions: --enable-helm
+  cmp:
+    create: true
+    plugins:
+      #kustomize-build-with-helm:
+      #  generate:
+      #    command: [ "sh", "-c" ]
+      #    args: [ "kustomize build --enable-helm" ]
+      kustomized-helm:
+        init:
+          command: ["/bin/sh", "-c"]
+          args: ["helm dependency build || true"]
+        generate:
+          command: [ "sh", "-c" ]
+          #args: ["echo \"$HELM_VALUES\" | helm template . --name-template $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS -f - > all.yaml && kustomize build"]
+          args: ["helm template . --name-template $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS  > all.yaml && kustomize build"]
+          #args: ["helm template . --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE $HELM_ARGS > all.yaml && kustomize build"]
