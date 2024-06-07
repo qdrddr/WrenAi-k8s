@@ -1,6 +1,6 @@
 - op: replace
   path: /data/WREN_ENGINE_ENDPOINT
-  value: "http://wren-ui.myhost.net"
+  value: "http://wren-engine-svc:8080"
 
 - op: replace
   path: /data/DB_TYPE
