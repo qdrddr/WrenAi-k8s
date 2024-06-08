@@ -16,7 +16,7 @@
 
 - op: add
   path: /data/AI_SERVICE_WORKERS
-  value: "4"
+  value: "1"
 
 - op: replace
   path: /data/OPENAI_GENERATION_MODEL
