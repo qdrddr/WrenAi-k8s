@@ -31,7 +31,7 @@ spec:
     path: infra-deployments/wrenai/manifests
     targetRevision: main
 
-  project: so-main
+  project: default
   syncPolicy:
     automated:
       prune: true

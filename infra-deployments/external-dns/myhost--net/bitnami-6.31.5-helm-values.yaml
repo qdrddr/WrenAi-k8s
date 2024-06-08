@@ -1,0 +1,43 @@
+#policy: sync
+#logLevel: debug
+resources:
+  limits:
+    cpu: 50m
+    memory: 50Mi
+  requests:
+    memory: 50Mi
+    cpu: 10m
+
+tolerations:
+  - key: "infra"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/control-plane
+    operator: Exists
+
+provider: cloudflare
+zoneIdFilters: 
+  - cloudflarezoneidc97c54d2560a5eedcd5dd1
+cloudflare:
+  proxied: true
+  secretName: myhost.net-prod-cf-api-token
+domainFilters:
+  - myhost.net
+
+sources: 
+  - ingress
+  - service
+  - gateway-httproute
+  - gateway-grpcroute
+  - gateway-tlsroute
+  - gateway-tcproute
+  - gateway-udproute
+#  - ambassador-host
+annotationFilter: "external-dns.alpha.kubernetes.io/filter notin (exclude),external-dns.alpha.kubernetes.io/filter in (include)"
+
+#labelFilter
+#ingressClassFilters
+extraArgs:
+  cloudflare-dns-records-per-page: 5000
