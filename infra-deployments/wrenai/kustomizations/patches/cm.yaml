@@ -13,3 +13,11 @@
 - op: replace
   path: /data/WREN_AI_ENDPOINT
   value: "http://wren-ai-service-svc:5555"
+
+- op: add
+  path: /data/AI_SERVICE_WORKERS
+  value: "4"
+
+- op: replace
+  path: /data/OPENAI_GENERATION_MODEL
+  value: "gpt-3.5-turbo"
