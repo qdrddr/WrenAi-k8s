@@ -17,7 +17,7 @@ namespace: ai-system
 #    newTag: 0.5.0 # Update to new version
 
 resources:
-- "https://github.com/Canner/WrenAI.git/deployment/kustomizations?ref=0.5.0"
+- "https://github.com/Canner/WrenAI.git/deployment/kustomizations?ref=0.6.0"
 #- "https://github.com/Canner/WrenAI.git/deployment/kustomizations?ref=0.5.1"
 
 ### Best practice is to create and deploy Secrets manually, not as part of kustomization or GitOps!
