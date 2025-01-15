@@ -51,3 +51,8 @@ patches:
   target:
     kind: ConfigMap
     name: wren-ai-service-config
+
+- path: patches/cm.yaml
+  target:
+    kind: ConfigMap
+    name: wren-config
