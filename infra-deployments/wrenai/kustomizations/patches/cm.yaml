@@ -12,15 +12,15 @@
 
 - op: replace
   path: /data/WREN_ENGINE_VERSION
-  value: "0.13.1"
+  value: "0.13.2"
 
 - op: replace
   path: /data/WREN_AI_SERVICE_VERSION
-  value: "0.14.0"
+  value: "0.14.4"
 
 - op: replace
   path: /data/WREN_UI_VERSION
-  value: "0.19.1"
+  value: "0.19.2"
 
 - op: replace
   path: /data/LOGGING_LEVEL
