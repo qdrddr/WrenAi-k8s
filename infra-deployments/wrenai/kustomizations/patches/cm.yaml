@@ -1,23 +1,27 @@
 - op: replace
-  path: /data/WREN_ENGINE_ENDPOINT
-  value: "http://wren-engine-svc:8080"
-
-- op: replace
-  path: /data/DB_TYPE
-  value: "pg"
-
-- op: replace
   path: /data/TELEMETRY_ENABLED
   value: "false"
 
 - op: replace
-  path: /data/WREN_AI_ENDPOINT
-  value: "http://wren-ai-service-svc:5555"
-
-- op: add
-  path: /data/AI_SERVICE_WORKERS
-  value: "1"
+  path: /data/GENERATION_MODEL
+  value: "gpt-4o-mini"
 
 - op: replace
-  path: /data/OPENAI_GENERATION_MODEL
-  value: "gpt-3.5-turbo"
+  path: /data/WREN_PRODUCT_VERSION
+  value: "0.14.0"
+
+- op: replace
+  path: /data/WREN_ENGINE_VERSION
+  value: "0.13.1"
+
+- op: replace
+  path: /data/WREN_AI_SERVICE_VERSION
+  value: "0.14.0"
+
+- op: replace
+  path: /data/WREN_UI_VERSION
+  value: "0.19.1"
+
+- op: replace
+  path: /data/LOGGING_LEVEL
+  value: "INFO"
