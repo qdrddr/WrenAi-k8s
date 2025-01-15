@@ -47,7 +47,7 @@ patches:
     name: wren-ui.myhost.net
 
 ### Patches values from the original repo in ConfigMap 
-- path: patches/cm.yaml
+- path: patches/rm-cm.yaml
   target:
     kind: ConfigMap
-    name: wren-config
+    name: wren-ai-service-config
