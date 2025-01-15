@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -132,11 +133,14 @@ data:
         llm: litellm_llm.gpt-4o-mini-2024-07-18
       - name: chart_adjustment
         llm: litellm_llm.gpt-4o-mini-2024-07-18
+      - name: sql_question_generation
+        llm: litellm_llm.gpt-4o-mini-2024-07-18
     ---
     settings:
       column_indexing_batch_size: 50
       table_retrieval_size: 10
       table_column_retrieval_size: 100
+      allow_using_db_schemas_without_pruning: false
       query_cache_maxsize: 1000
       query_cache_ttl: 3600
       langfuse_host: https://cloud.langfuse.com
