@@ -16,7 +16,7 @@
 
 - op: replace
   path: /data/WREN_AI_SERVICE_VERSION
-  value: "0.14.4"
+  value: "0.14.6"
 
 - op: replace
   path: /data/WREN_UI_VERSION
